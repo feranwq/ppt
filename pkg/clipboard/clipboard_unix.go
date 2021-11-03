@@ -1,4 +1,4 @@
-// +build freebsd linux netbsd openbsd solaris dragonfly
+//go:build freebsd || linux || netbsd || openbsd || solaris || dragonfly
 
 package clipboard
 

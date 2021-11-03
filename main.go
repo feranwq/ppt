@@ -24,7 +24,7 @@ func main() {
 		panic(err)
 	}
 	processPasteText, err := utils.RemoveComment(pasteText)
-	log.Println(processPasteText)
+	log.Println("\n", processPasteText)
 	if err != nil {
 		panic(err)
 	}
