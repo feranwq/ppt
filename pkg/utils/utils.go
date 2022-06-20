@@ -8,13 +8,14 @@ import (
 )
 
 func RemoveComment(text string) (string, error) {
-	regexp, err := regexp.Compile(`\n.*// `)
+	regexpPattern, err := regexp.Compile(`\n.*// `)
 	if err != nil {
 		return text, err
 	}
-	match := regexp.ReplaceAllString(text, "")
+	match := regexpPattern.ReplaceAllString(text, "")
 	rep := strings.Replace(match, "//", "", -1)
-	return rep, nil
+	res := strings.Replace(rep, "\n  ", "", -1)
+	return res, nil
 }
 
 func GetEnvValue(env string) (string, error) {
