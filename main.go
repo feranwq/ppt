@@ -23,7 +23,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	processPasteText, err := utils.RemoveComment(pasteText)
+	processPasteText, err := utils.FormatComment(pasteText)
 	log.Println("\n", processPasteText)
 	if err != nil {
 		panic(err)

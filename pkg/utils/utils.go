@@ -7,15 +7,15 @@ import (
 	"strings"
 )
 
-func RemoveComment(text string) (string, error) {
-	regexpPattern, err := regexp.Compile(`\n.*// `)
+func FormatComment(text string) (string, error) {
+	regexpPattern, err := regexp.Compile(`‐\s+|\n.*// `)
 	if err != nil {
 		return text, err
 	}
 	match := regexpPattern.ReplaceAllString(text, "")
 	rep := strings.Replace(match, "//", "", -1)
-	res := strings.Replace(rep, "\n", "", -1)
-	return res, nil
+	result := strings.Replace(rep, "\n", " ", -1)
+	return result, nil
 }
 
 func GetEnvValue(env string) (string, error) {

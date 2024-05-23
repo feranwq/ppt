@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
-//百度翻译开放平台信息
+// 百度翻译开放平台信息
 type BaiduInfo struct {
 	AppID     string
 	Salt      string
@@ -24,7 +24,7 @@ type BaiduInfo struct {
 	Text      string
 }
 
-//返回结果
+// 返回结果
 type TransResult struct {
 	From      string   `json:"from"`
 	To        string   `json:"to"`
@@ -37,8 +37,8 @@ type Result struct {
 	Dst string `json:"dst"`
 }
 
-//自动生盐
-//入口参数为盐的长度
+// 自动生盐
+// 入口参数为盐的长度
 func Salt(l int) string {
 	str := "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	bytes := []byte(str)
@@ -58,7 +58,7 @@ func Sign(bi *BaiduInfo) string {
 	return hex.EncodeToString(ctx.Sum(nil))
 }
 
-//翻译 传入需要翻译的语句
+// 翻译 传入需要翻译的语句
 func (bi *BaiduInfo) Translate() string {
 	apiUrl := "http://api.fanyi.baidu.com"
 	resource := "/api/trans/vip/translate"
