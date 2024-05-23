@@ -14,7 +14,7 @@ func RemoveComment(text string) (string, error) {
 	}
 	match := regexpPattern.ReplaceAllString(text, "")
 	rep := strings.Replace(match, "//", "", -1)
-	res := strings.Replace(rep, "\n  ", "", -1)
+	res := strings.Replace(rep, "\n", "", -1)
 	return res, nil
 }
 
